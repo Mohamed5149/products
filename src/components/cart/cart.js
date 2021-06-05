@@ -1,7 +1,12 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
+import './cart.scss';
 import * as actionCreators from '../../store/actions/actionCreators';
 
 const Cart = () => {
+    let history = useHistory();
+
     const cartProducts = useSelector(state => state.cartProducts);
     const dispatch = useDispatch();
 
@@ -17,40 +22,46 @@ const Cart = () => {
         dispatch(actionCreators.removeProductFromcart(productId))
     }
 
+    const reviewOrder = () => {
+        history.push("/review-order");
+    }
+
     return (
-        <>
+        <div className="cart-container">
             {
-                cartProducts.length > 0 ?
                 cartProducts.map(product => {
                     return (
                         <div className="card" key={product.id}>
-                            <div className="card-header">{product.name}</div>
+                            <div className="card-header">
+                                <span>{product.name}</span>
+                                <i onClick={() => removeFromCart(product.id)} className="fa fa-trash"></i>
+                            </div>
                             <div className="card-body">
                                 <div className="card-body-image">
-                                    <img style={{ width: "50px", height: "50px" }} src={product.image} alt={product.name} />
                                 </div>
                                 <div className="card-body-price">
-                                    <span>price:</span>
+                                    <span>Price:</span>
                                     <span>{product.price * product.quantity}</span>
                                 </div>
                                 <div className="card-body-quantity">
-                                    <span>quantity</span>
+                                    <span>Quantity:</span>
                                     <span>{product.quantity}</span>
                                     <div className="card-body-quantity-btns">
-                                        <button onClick={() => decreaseQuantity(product.id)}>decrease</button>
-                                        <button onClick={() => increaseQuantity(product.id)}>increase</button>
+                                        <button onClick={() => decreaseQuantity(product.id)}><i className="fa fa-minus"></i></button>
+                                        <button onClick={() => increaseQuantity(product.id)}><i className="fa fa-plus"></i></button>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="card-footer">
-                                <button onClick={() => removeFromCart(product.id)}>Remove From Cart</button>
                             </div>
                         </div>
                     )
                 })
-                : <span>Your Cart Is Empty</span>
             }
-        </>
+            {
+                cartProducts.length > 0 ?
+                    <button onClick={() => reviewOrder()} className="review-btn">Review Your Order</button> :
+                    <span className="warning-message">Your Cart Is Empty</span>
+            }
+        </div>
     )
 }
 export default Cart;

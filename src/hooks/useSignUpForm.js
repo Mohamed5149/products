@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import validate from '../utilities/validation';
 
 const useSignUpForm = (initialValues) => {
@@ -8,8 +8,8 @@ const useSignUpForm = (initialValues) => {
       {
         ...inputs,
         [event.target.name]: event.target.value,
-        [event.target.name + 'IsValid']: validate('length', event.target.value),
-        [event.target.name + 'IsTouched']: validate('length', event.target.value),
+        [event.target.name + 'IsValid']: validate(event.target.name, event.target.value),
+        [event.target.name + 'IsTouched']: true,
       }
     ));
   }

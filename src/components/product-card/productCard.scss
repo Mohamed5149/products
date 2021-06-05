@@ -1,0 +1,15 @@
+.card-section{
+    margin-bottom: 1rem;
+    .card{
+        margin-bottom: 1rem;
+        &-img-top{
+         max-width: 15rem;
+         height: 15rem;
+        }
+        &-body{
+            &-text{
+                height: 10rem;
+            }
+        }
+    }
+}

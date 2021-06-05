@@ -1,0 +1,43 @@
+.cart-container{
+    height: 18rem;
+    overflow-y: auto;
+
+    .card{
+        &-header{
+            i{
+                float: left;
+                color: #DE3545;
+                cursor: pointer;
+            }
+        }
+        &-body{
+            &-image{
+                img{
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+            &-quantity{
+                &-btns{
+                    display: flex;
+                    justify-content: space-evenly;
+                    button{
+                        border: unset;
+                        border-radius: 10px;
+                        width: 3rem;
+                    }
+                }
+            }
+        }
+    }
+    .warning-message{
+        color: white;
+    }
+    .review-btn{
+        margin-top: 2rem;
+        border: unset;
+        border-radius: 5px;
+        width: 10rem;
+        height: 4rem;
+    }
+}
