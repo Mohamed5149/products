@@ -1,6 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
 import './cart.scss';
 import * as actionCreators from '../../store/actions/actionCreators';
 
@@ -33,12 +32,10 @@ const Cart = () => {
                     return (
                         <div className="card" key={product.id}>
                             <div className="card-header">
-                                <span>{product.name}</span>
+                                <span>{product.title}</span>
                                 <i onClick={() => removeFromCart(product.id)} className="fa fa-trash"></i>
                             </div>
                             <div className="card-body">
-                                <div className="card-body-image">
-                                </div>
                                 <div className="card-body-price">
                                     <span>Price:</span>
                                     <span>{product.price * product.quantity}</span>

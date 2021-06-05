@@ -28,3 +28,9 @@ export const decreaseQuantity = (productId) => {
         payload: productId
     }
 }
+
+export const emptyCart = () => {
+    return {
+        type: actionTypes.EMPTYCART
+    }
+}

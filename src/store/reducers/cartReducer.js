@@ -49,6 +49,11 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 cartProducts: cartProductsCopyToDecrease
             }
+        case actionTypes.EMPTYCART:
+            return {
+                ...state,
+                cartProducts: []
+            }
         default:
             return state;
     }

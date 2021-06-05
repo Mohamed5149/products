@@ -11,7 +11,6 @@ const ReviewOrder = () => {
         history.push('/user-form')
     }
 
-
     return (
         <div className="container">
             <h4>Cart <span className="price"><i className="fa fa-shopping-cart"></i> </span></h4>
@@ -32,7 +31,7 @@ const ReviewOrder = () => {
                             return (
                                 <tr key={product.id}>
                                     <th scope="row">{index + 1}</th>
-                                    <td>{product.name}</td>
+                                    <td>{product.title}</td>
                                     <td>{product.quantity}</td>
                                     <td>{product.price}</td>
                                     <td>{product.quantity * product.price}</td>

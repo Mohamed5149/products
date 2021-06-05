@@ -1,0 +1,19 @@
+.form-container{
+    display: flex;
+    // justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    &-user{
+        width: 50%;
+        padding: 5rem;
+        .btn.btn-primary{
+            &.disabled{
+                cursor: not-allowed !important;
+                pointer-events: unset;
+            }
+        }
+    }
+    .form-group{
+        margin-bottom: 1rem;
+    }
+}
