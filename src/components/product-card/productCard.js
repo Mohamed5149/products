@@ -24,6 +24,7 @@ const ProductCard = ({ product }) => {
                     <div className="card-body-text">
                         <p className="card-text">{product.title}</p>
                         <p className="card-text">{product.category}</p>
+                        <p className="card-text">Price: ${product.price}</p>
                     </div>
                     <div className="d-flex justify-content-between align-items-center">
                         <div className="btn-group">
